@@ -72,7 +72,7 @@ const StackNavigation = ({navigation}) => {
       component={Syllabus}
       options={{
        
-        headerShown: true,
+        headerShown: false,
       }}
     />
      <Stack.Screen

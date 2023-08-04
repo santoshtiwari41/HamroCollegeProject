@@ -147,7 +147,9 @@ const Syllabus = () => {
       <FlatList
         data={schedule}
         renderItem={({ item }) => (
-          <TouchableOpacity onPress={() => openPDF(item.pdfUrl)}>
+          <TouchableOpacity 
+          // onPress={() => openPDF(item.pdfUrl)}
+          >
             <View style={styles.scheduleItem}>
               <Text style={styles.subjectText}>{item.subject}</Text>
               <Text style={styles.timeText}>{item.time}</Text>
@@ -178,7 +180,7 @@ const Syllabus = () => {
         {renderSelection(semesters, selectedSemester, setSelectedSemester)}
       </View>
 
-      <Text style={styles.subHeading}>Routine Schedule:</Text>
+      <Text style={styles.subHeading}>Syllabus Schedule:</Text>
       <View style={styles.scheduleContainer}>{renderSchedule()}</View>
     </View>
   );
@@ -187,13 +189,21 @@ const Syllabus = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F8F8F8',
+    // backgroundColor: '#F8F8F8',
     padding: 16,
+    backgroundColor: '#090C13',
+
+  },
+  header1: {
+    marginLeft: 13,
+    marginTop: 0,
+    marginBottom:15
   },
   header: {
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: 16,
+   
   },
   backButton: {
     marginRight: 16,
@@ -207,14 +217,16 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 8,
+    color:'rgb(130,130,130)'
   },
   selectionContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: 16,
+   
   },
   selectionItem: {
-    backgroundColor: '#FFF',
+    backgroundColor: 'rgb(220,220,220)',
     borderRadius: 16,
     paddingVertical: 10,
     paddingHorizontal: 20,
@@ -223,38 +235,57 @@ const styles = StyleSheet.create({
   selectionText: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: '#444',
+    color: 'rgb(10,10,10)',
   },
   selected: {
-    backgroundColor: '#C8E6C9',
+    backgroundColor: 'rgba(181,100,241,0.9)',
   },
   selectedText: {
     color: '#000',
   },
   scheduleContainer: {
     flex: 1,
-    backgroundColor: '#FFF',
     borderRadius: 8,
-    padding: 16,
   },
   scheduleItem: {
-    padding: 16,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 40,
-    backgroundColor: 'green',
-    borderRadius: 7
+    marginBottom: 20,
+    backgroundColor: '#212121',
+    borderRadius:10,
+    padding:17
+  },
+  dayText: {
+    fontSize: 19,
+    fontWeight: 'bold',
+    color: 'rgba(18,90,241,0.4)',
+    marginRight:9,
+   
+    
+  },
+  subjectsContainer: {
+    flex: 1,
+  },
+  subjectItem: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 17,
+    
   },
   subjectText: {
-    fontSize: 16,
+    fontSize: 15,
     fontWeight: 'bold',
-    color: '#444',
+    color:'rgb(130,130,130)'
   },
   timeText: {
-    fontSize: 14,
+    fontSize: 13,
     color: '#666',
+    marginRight:10,
+    marginTop:12
   },
 });
+
 
 export default Syllabus;
