@@ -15,8 +15,8 @@ const Unboarding = ({ navigation }) => {
             <Text style={styles.title}>Welcome to Hamro College!</Text>
               
             <View style={styles.container2}>
-                <UnboardingImage /> 
-                {/* <Unboardingimage2 /> */}
+                {/* <UnboardingImage />  */}
+                <Unboardingimage2 />
                 <TouchableOpacity style={styles.loginButton} onPress={handleUnboarding}>
                     <Text style={styles.buttonText}>Let's start</Text>
                     <Ionicons name="md-chevron-forward" size={24} color="#FFFFFF" style={styles.icon} />
