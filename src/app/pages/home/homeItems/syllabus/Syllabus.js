@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
-import * as FileSystem from 'expo-file-system';
-import * as IntentLauncher from 'expo-intent-launcher';
 
-import { Platform } from 'react-native';
-import * as Linking from 'expo-linking';
+
 import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -97,9 +94,10 @@ const scheduleData = {
 };
 
 const Syllabus = () => {
-  const { navigate } = useNavigation();
   const [selectedFaculty, setSelectedFaculty] = useState(facultyMembers[0].id);
   const [selectedSemester, setSelectedSemester] = useState(semesters[0].id);
+  const [showPdf, setShowPdf] = useState(false);
+  const [pdfUrl, setPdfUrl] = useState('');
 
   const scheduleKey = `${selectedFaculty}_${selectedSemester}`;
   const schedule = scheduleData[scheduleKey];
@@ -123,33 +121,13 @@ const Syllabus = () => {
     );
   };
 
-  // const openPDF = async (pdfUrl) => {
-  //   try {
-  //     const localUri = FileSystem.cacheDirectory + 'syllabus.pdf';
-  //     const fileInfo = await FileSystem.getInfoAsync(localUri);
-  //     if (!fileInfo.exists) {
-  //       const downloadOptions = { headers: { 'Authorization': 'Bearer YOUR_AUTH_TOKEN' } }; // Replace with any necessary headers for your server
-  //       await FileSystem.downloadAsync(pdfUrl, localUri, downloadOptions);
-  //     }
-
-  //     if (Platform.OS === 'android') {
-  //       IntentLauncher.startActivityAsync(IntentLauncher.ACTION_VIEW, { data: FileSystem.getContentUriAsync(localUri), type: 'application/pdf' });
-  //     } else {
-  //       Linking.openURL('file://' + localUri);
-  //     }
-  //   } catch (error) {
-  //     console.error('Error opening PDF:', error);
-  //   }
-  // };
-
+ 
   const renderSchedule = () => {
     return (
       <FlatList
         data={schedule}
         renderItem={({ item }) => (
-          <TouchableOpacity 
-          // onPress={() => openPDF(item.pdfUrl)}
-          >
+          <TouchableOpacity >
             <View style={styles.scheduleItem}>
               <Text style={styles.subjectText}>{item.subject}</Text>
               <Text style={styles.timeText}>{item.time}</Text>
