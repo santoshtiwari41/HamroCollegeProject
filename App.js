@@ -25,9 +25,9 @@ export default function App() {
 
     <>
     <StatusBar barStyle="light-content" backgroundColor="#000000" />
-<StackNavigation /> 
+{/* <StackNavigation />  */}
 
-{/* <Auth /> */}
+<Auth />
 
     </>
       

@@ -14,12 +14,12 @@ const Auth = () => {
     <View style={{ flex: 1, backgroundColor: '#000000' }}>
       
          <NavigationContainer>
-        <Stack.Navigator initialRouteName="LogIn">
-        {/* <Stack.Screen
+        <Stack.Navigator initialRouteName="Unboarding">
+        <Stack.Screen
             name="Unboarding"
             component={Unboarding}
             options={{ headerShown: false }} // Hide the header for this screen
-          /> */}
+          />
           <Stack.Screen
             name="LogIn"
             component={LogIn}
