@@ -123,24 +123,24 @@ const Syllabus = () => {
     );
   };
 
-  const openPDF = async (pdfUrl) => {
-    try {
-      const localUri = FileSystem.cacheDirectory + 'syllabus.pdf';
-      const fileInfo = await FileSystem.getInfoAsync(localUri);
-      if (!fileInfo.exists) {
-        const downloadOptions = { headers: { 'Authorization': 'Bearer YOUR_AUTH_TOKEN' } }; // Replace with any necessary headers for your server
-        await FileSystem.downloadAsync(pdfUrl, localUri, downloadOptions);
-      }
+  // const openPDF = async (pdfUrl) => {
+  //   try {
+  //     const localUri = FileSystem.cacheDirectory + 'syllabus.pdf';
+  //     const fileInfo = await FileSystem.getInfoAsync(localUri);
+  //     if (!fileInfo.exists) {
+  //       const downloadOptions = { headers: { 'Authorization': 'Bearer YOUR_AUTH_TOKEN' } }; // Replace with any necessary headers for your server
+  //       await FileSystem.downloadAsync(pdfUrl, localUri, downloadOptions);
+  //     }
 
-      if (Platform.OS === 'android') {
-        IntentLauncher.startActivityAsync(IntentLauncher.ACTION_VIEW, { data: FileSystem.getContentUriAsync(localUri), type: 'application/pdf' });
-      } else {
-        Linking.openURL('file://' + localUri);
-      }
-    } catch (error) {
-      console.error('Error opening PDF:', error);
-    }
-  };
+  //     if (Platform.OS === 'android') {
+  //       IntentLauncher.startActivityAsync(IntentLauncher.ACTION_VIEW, { data: FileSystem.getContentUriAsync(localUri), type: 'application/pdf' });
+  //     } else {
+  //       Linking.openURL('file://' + localUri);
+  //     }
+  //   } catch (error) {
+  //     console.error('Error opening PDF:', error);
+  //   }
+  // };
 
   const renderSchedule = () => {
     return (
