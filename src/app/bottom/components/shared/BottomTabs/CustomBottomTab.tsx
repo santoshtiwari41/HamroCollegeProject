@@ -36,7 +36,7 @@ export const CustomBottomTab: FC<BottomTabBarProps> = ({
         return 'bell';
       case 'Calendar':
         return 'calendar';
-      case 'book':
+      case 'b\o\= ok':
         return 'book';
       default:
         return 'home';
